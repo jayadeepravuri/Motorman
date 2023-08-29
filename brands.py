@@ -1,5 +1,5 @@
 brands=['Abarth',
-'Abbott-Detroit',
+'Abbott Detroit',
 'ABT',
 'AC',
 'Acura',
