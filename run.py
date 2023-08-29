@@ -3,7 +3,11 @@
 
 import random
 from brands import brands
-print(brands)
-#def get_valid_brand(brands):
- #   brand= random.choice
-  #  print()
+
+def get_valid_brand(brands):
+    brand= random.choice
+    while " " in brand:
+     brand = random.choice(brands)
+    return brand
+
+def motorman():
