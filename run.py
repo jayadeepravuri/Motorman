@@ -3,7 +3,34 @@
 
 import random
 from brands import brands
+import string
+import os
 
+score = 0
+
+def username():
+    
+    username = ""
+    while True:
+
+        username = input("welcome! please entre a username: \n")
+        
+        if username.isalpha() is True:
+            print(f"Hello {username}, Let's play Motorman!")
+            print("The rules are simple, guess a car brand , by entering a letter or a word\n")
+            print("You have to guess it within 6 attempts to Win!\n")
+            return username
+        else:
+            print("Invalid character. Please enter in alphabets.")
+            print("-----------------------------------------------")
+            continue
+
+
+def clear():
+    """
+    Function to clear the terminal, called when terminal gets crowded.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
 
 def get_valid_brand(brands):
     brand = random.choice(brands)
@@ -14,7 +41,7 @@ def get_valid_brand(brands):
 def motorman(brand):
     brand_completion = "_" * len(brand)
     guessed = False
-    used_letter = []
+    alphabet = set(string.ascii_uppercase)
     guessed_letter = []
     guessed_word = []
     guessed = False
@@ -153,6 +180,9 @@ def display_hangman(lives):
 
 
 def main():
+    clear()
+    username()
+    clear(get_valid_brand)
     brand = get_valid_brand(brands)
     motorman(brand)
     while input("Play Again? (Y/N) ").upper() == "Y":
