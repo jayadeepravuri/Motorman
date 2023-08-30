@@ -13,13 +13,22 @@ def username():
     username = ""
     while True:
 
-        username = input("welcome! please entre a username: \n")
+        username = input("Welcome! Please Entre a Username: \n")
         
         if username.isalpha() is True:
-            print(f"Hello {username}, Let's play Motorman!")
-            print("The rules are simple, guess a car brand , by entering a letter or a word\n")
-            print("You have to guess it within 6 attempts to Win!\n")
-            return username
+           print ("------------------------------------------")
+            
+           print(f"Hello {username}, Let's play Motorman!\n")
+           print(" __  __       _                                   ")
+           print("|  \/  |     | |                                  ")
+           print("| \  / | ___ | |_ ___  _ __ _ __ ___   __ _ _ __  ")
+           print("| |\/| |/ _ \| __/ _ \| '__| '_ ` _ \ / _` | '_ \ ")
+           print("| |  | | (_) | || (_) | |  | | | | | | (_| | | | |")
+           print("|_|  |_|\___/ \__\___/|_|  |_| |_| |_|\__,_|_| |_|")
+           
+           print("The rules are simple, guess a car brand , by entering a letter or a word\n")
+           print("You have to guess it within 6 attempts to Win!\n")
+           return username
         else:
             print("Invalid character. Please enter in alphabets.")
             print("-----------------------------------------------")
@@ -100,75 +109,54 @@ def motorman(brand):
 
 
 def display_hangman(lives):
-    stages = [  # final state: head, torso, both arms, and both legs
-                """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|/
-                   |      |
-                   |     / \\
-                   -
-                """,
+    stages = [  
                 # head, torso, both arms, and one leg
                 """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|/
-                   |      |
-                   |     / 
-                   -
+                                     .
+                   __            |\
+                __/__\___________| \_
+                |   ___    |  ,|   ___`-.
+                |  /   \   |___/  /   \  `-.
+                |_| (O) |________| (O) |____|
+                   \___/          \___/
                 """,
                 # head, torso, and both arms
                 """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|/
-                   |      |
-                   |      
-                   -
+                                  
+                __/__\___________| \_
+                |   ___    |  ,|   ___`-.
+                |  /   \   |___/  /   \  `-.
+                |_| (O) |________| (O) |____|
+                   \___/          \___/
                 """,
                 # head, torso, and one arm
                 """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|
-                   |      |
-                   |     
-                   -
+                  .
+                
+                |   ___    |  ,|   ___`-.
+                |  /   \   |___/  /   \  `-.
+                |_| (O) |________| (O) |____|
+                   \___/          \___/
                 """,
                 # head and torso
                 """
-                   --------
-                   |      |
-                   |      O
-                   |      |
-                   |      |
-                   |     
-                   -
+                                  .
+         
+                |  /   \   |___/  /   \  `-.
+                |_| (O) |________| (O) |____|
+                   \___/          \___/
                 """,
                 # head
                 """
-                   --------
-                   |      |
-                   |      O
-                   |    
-                   |      
-                   |     
-                   -
+                                .
+               
+                |_| (O) |________| (O) |____|
+                   \___/          \___/
                 """,
                 # initial empty state
                 """
-                   --------
-                   |      |
-                   |      
-                   |    
-                   |      
-                   |     
-                   -
+               
+                \___/          \___/
                 """
     ]
     return stages[lives]
@@ -182,7 +170,6 @@ def display_hangman(lives):
 def main():
     clear()
     username()
-    clear(get_valid_brand)
     brand = get_valid_brand(brands)
     motorman(brand)
     while input("Play Again? (Y/N) ").upper() == "Y":
