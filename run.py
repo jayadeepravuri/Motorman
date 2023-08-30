@@ -104,6 +104,14 @@ def motorman(brand):
         print("\n")
     if guessed:
         print("Congrats, you guessed the word! You win!")
+        print("  _____                            _       ")       
+        print(" / ____|                          | |      ")     
+        print("| |     ___  _ __   __ _ _ __ __ _| |_ ___ ")
+        print("| |    / _ \| '_ \ / _` | '__/ _` | __/ __|")
+        print("| |___| (_) | | | | (_| | | | (_| | |_\__ |")
+        print(" \_____\___/|_| |_|\__, |_|  \__,_|\__|___/")
+        print("                  __/ |                    ")
+        print("                  |___/                    ")
     else:
         print("Sorry, you ran out of lives. The car brand was " + brand + ". ")
 
