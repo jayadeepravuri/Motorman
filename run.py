@@ -6,7 +6,6 @@ from brands import brands
 import string
 import os
 
-score = 0
 
 def username():
     
@@ -24,7 +23,7 @@ def username():
            print("| \  / | ___ | |_ ___  _ __ _ __ ___   __ _ _ __  ")
            print("| |\/| |/ _ \| __/ _ \| '__| '_ ` _ \ / _` | '_ \ ")
            print("| |  | | (_) | || (_) | |  | | | | | | (_| | | | |")
-           print("|_|  |_|\___/ \__\___/|_|  |_| |_| |_|\__,_|_| |_|")
+           print("|_|  |_|\___/ \__\___/|_|  |_| |_| |_|\__,_|_| |_|\n")
            
            print("The rules are simple, guess a car brand , by entering a letter or a word\n")
            print("You have to guess it within 6 attempts to Win!\n")
@@ -54,12 +53,13 @@ def motorman(brand):
     guessed_letter = []
     guessed_word = []
     guessed = False
-    lives = 6
+    lives = 5
 
 
     print("Let's play motorman!")
+    print("\n")
     print(brand_completion)
-    print(display_hangman(lives))
+    print(build_motorman(lives))
     print("\n")
 
 
@@ -98,29 +98,41 @@ def motorman(brand):
 
         else:
             print ("invalid character")
-        print(display_hangman(lives))
+
+        print(build_motorman(lives))
         print(brand_completion)
         print("\n")
     if guessed:
         print("Congrats, you guessed the word! You win!")
     else:
-        print("Sorry, you ran out of tries. The word was " + brand + ". Maybe next time!")
+        print("Sorry, you ran out of lives. The car brand was " + brand + ". ")
 
 
 
-def display_hangman(lives):
+def build_motorman(lives):
     stages = [  
-                # head, torso, both arms, and one leg
                 """
-                                     .
-                   __            |\
-                __/__\___________| \_
+               
+                \___/          \___/
+                """,
+                """
+
+                |_| (O) |________| (O) |____|
+                   \___/          \___/
+                """,
+                """
+
+                |  /   \   |___/  /   \  `-.
+                |_| (O) |________| (O) |____|
+                   \___/          \___/
+                """,
+                """
+                
                 |   ___    |  ,|   ___`-.
                 |  /   \   |___/  /   \  `-.
                 |_| (O) |________| (O) |____|
                    \___/          \___/
                 """,
-                # head, torso, and both arms
                 """
                                   
                 __/__\___________| \_
@@ -129,42 +141,19 @@ def display_hangman(lives):
                 |_| (O) |________| (O) |____|
                    \___/          \___/
                 """,
-                # head, torso, and one arm
                 """
-                  .
-                
+
+                   __            ||
+                __/__\___________| \_
                 |   ___    |  ,|   ___`-.
                 |  /   \   |___/  /   \  `-.
                 |_| (O) |________| (O) |____|
                    \___/          \___/
-                """,
-                # head and torso
-                """
-                                  .
-         
-                |  /   \   |___/  /   \  `-.
-                |_| (O) |________| (O) |____|
-                   \___/          \___/
-                """,
-                # head
-                """
-                                .
-               
-                |_| (O) |________| (O) |____|
-                   \___/          \___/
-                """,
-                # initial empty state
-                """
-               
-                \___/          \___/
-                """
-    ]
+                """         
+                
+            ]
+
     return stages[lives]
-
-
-
-
-
 
 
 def main():
@@ -172,10 +161,34 @@ def main():
     username()
     brand = get_valid_brand(brands)
     motorman(brand)
-    while input("Play Again? (Y/N) ").upper() == "Y":
-        brand = get_valid_brand(brands)
-        motorman(brand)
+    while True:
+        question = input("Would you like to play again? (Y/N) ").upper()
+        if question.upper() == "N":
+            clear()
+            print("Thank you for playing")
+            print("\n")
+            print(" __  __       _                                   ")
+            print("|  \/  |     | |                                  ")
+            print("| \  / | ___ | |_ ___  _ __ _ __ ___   __ _ _ __  ")
+            print("| |\/| |/ _ \| __/ _ \| '__| '_ ` _ \ / _` | '_ \ ")
+            print("| |  | | (_) | || (_) | |  | | | | | | (_| | | | |")
+            print("|_|  |_|\___/ \__\___/|_|  |_| |_| |_|\__,_|_| |_|\n")
+            break
+            clear()
+        elif question.upper() != "Y":
+             clear()
+             print(f"{question} is not valid. Entre a valid character")
+             print("\n")
+             question.upper()
+        else:
+            clear()
+            username()
+            brand = get_valid_brand(brands)
+            motorman(brand)
+
+
 
 
 if __name__ == "__main__":
     main()
+    
