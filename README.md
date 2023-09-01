@@ -1,6 +1,6 @@
 # Motorman
 
-![Title graphic](/assets/title.png)
+![Title graphic](/assets/images/title.JPG)
 
 The popular game of hangman, presented on a command line application format. The game is suitable to all persons, providing full user interaction to complete the game.
 
