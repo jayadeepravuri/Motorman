@@ -47,7 +47,7 @@ def get_valid_brand(brands):
     return brand.upper()
 
 def motorman(brand):
-    brand_completion = "_" * len(brand)
+    brand_completion = "-" * len(brand)
     guessed = False
     alphabet = set(string.ascii_uppercase)
     guessed_letter = []
