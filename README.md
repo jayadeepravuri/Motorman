@@ -23,10 +23,9 @@ The design element does not feature too much in this project, as it is a command
 
 ### ASCII Art
 
-![Gallows art](/assets/gallows-art.png)
-![ASCII Art](/assets/ASCII%20Hangman.png)
+![ASCII Art](/assets/images/ASCII.JPG)
 
-I found myself particularly drawn to the concept of incorporating ASCII art, a graphical design technique that utilizes printable characters to craft images. Considering this game operates within a command-line environment, there was a risk of it appearing rather plain and uninteresting to users. In my perspective, there was room for greater utilization of ASCII art, potentially to convey the remaining number of lives.
+I was particularly captivated by the idea of integrating ASCII art, a creative graphical technique that employs printable characters to construct visual representations. Given that this game operates within a command-line environment, there was a concern that it might come across as simplistic and unengaging to users. From my viewpoint, there was an opportunity to leverage ASCII art more extensively, potentially to communicate the remaining number of lives.
 
 ## Testing
 
@@ -45,11 +44,6 @@ Due to the use of ASCII art, W605,W291,W292,W293 errors were registered accordin
 
 Also, E111 and E501 readability errors were registered according to PEP8 standards.
 
-### Issues
-
-I have come across a number of issues I found within the game. Some do affect the users experience and others have some visual implications.
-
-
 ## Deployment
 
 The following deployment stages were taken. Through Gitpod, I would have to stage regular commits.
@@ -65,25 +59,20 @@ As this was a command line program, I had to deploy via Heroku. Heroku is a clou
 * Add buildpacks, python and node.js
 * From the Deploy tab, deploy manually at the bottom of the page.
 
-![Setting tab](/assets/settings-tab.png)
-![Config Vars](/assets/config-vars-settings.png)
-![Buildpacks](/assets/settings-buildpack.png)
-![Deploy](/assets/heroku-deploy.png)
-
 The above steps, created a usable application.
 
 ## Future Development
 
 I feel there is a lot more scope and potential for this game. Firstly an issue for me is that the user is not allowed to select a new category after each retry. Whilst I added some code that rectified this, it did create issues elsewhere. Also the code for me seems very clunky and would definitely benefit from being condensed so that the readability improves significantly.
 
-Moving forward, I would like to see more ASCII art within the game. Post development, I stumbled across a module that would have enabled me to create these art pieces, as supposed to finding them from other repositories (mentioned below). Also, maybe some music in the background in true 8-bit style would have really leant to the nostalgia feel of the game.
+* Firstly, the game could have different levels of difficulty, according to category of 
+  words.
+* The guessed letter could be displayed.
+* Multiple letters can be taken instead of a single letter.
+* Score system could be added.
 
 ## Credits and Mentions
 
-
-
-
-
-## Thanks
-
-I’d like to thank you for taking the time to read this README file, and I hope you have enjoyed playing the game. 
+* Code institute for the template.
+* Youtube for great tutorials and inspiration.
+* My family for the suppport.
