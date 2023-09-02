@@ -11,7 +11,7 @@ def username():
     username = ""
     while True:
 
-        username = input("Welcome! Please Entre a Username: \n")       
+        username = input("Welcome! Please Enter a Name: \n")       
         if username.isalpha() is True:
            print("------------------------------------------")
            print(f"Hello {username}, Let's play Motorman!\n")
