@@ -4,13 +4,13 @@
 
 The popular game of Hangman, has been redesigned and given the name MotorMan. It is a command line interface game and the player should guess a letter or a word within 6 tries, in order to win the game. The game  provides full user interaction to complete the game.
 
-I hope that you enjoy the game.
+I trust you'll find the game enjoyable.
 
 ## Lucid Chart
 
 ![Flow Chart](/assets/images/Lucidchart.JPG)
 
-Prior to the initial implementation of the game, I constructed a flow chart using [Lucid Chart](https://www.lucidchart.com/pages/) to help me understand how I would be able to write the Python code for the game. At the beginning of the game, I wanted to ask the user their name and use it later on. Also, I wanted to ask the user whether they were sure about their category decision. If not, I wanted to loop back to the question.
+Before commencing the game's initial development, I created a flowchart using Lucid Chart to map out my approach to writing the Python code for the game. At the start of the game, my intention was to inquire about the user's name and store it for later use. Additionally, I aimed to confirm the user's category choice and, in case of uncertainty, implement a loop to revisit the question.
 
 In conclusion, my priority was to establish a clear visual representation of how the code would function in relation to letter guessing. Initially, I grappled with the question of whether the user had discovered the correct letter within a word, even though the word itself hadn't been established according to the flow chart. To address this, I revised the flow to indicate whether the given letter matched the correct word and, if not, whether it existed within the word before proceeding through the loop. 
 
@@ -27,7 +27,7 @@ The design element does not feature too much in this project, as it is a command
 ![Gallows art](/assets/gallows-art.png)
 ![ASCII Art](/assets/ASCII%20Hangman.png)
 
-Looking at previous projects from other students, I really liked the idea of using ASCII (A graphical design technique using printable characters to create images) art. As a command line program, this game could easily have looked bland and boring to a user. I feel there could have been more use of the ASCII art, perhaps to display how many lives were remaining, as I don not feel this is highlighted quite as well as it should be.
+I found myself particularly drawn to the concept of incorporating ASCII art, a graphical design technique that utilizes printable characters to craft images. Considering this game operates within a command-line environment, there was a risk of it appearing rather plain and uninteresting to users. In my perspective, there was room for greater utilization of ASCII art, potentially to convey the remaining number of lives.
 
 ## Testing
 
@@ -35,8 +35,7 @@ Looking at previous projects from other students, I really liked the idea of usi
 
 ![Snyk validator](/assets/snyk-validate.png)
 
-For validation, I used Snyk. This allowed me to test the entire code and test it up to the PEP8 standards. PEP8 (Python Enhancement Proposal) dives into the readability and consistency of the Python code written. This test suggested I use a different method to exit the program, however there are no errors in what my current code does. Aside from my own personal readability issues (more below) my code conforms to PEP8.
-
+I employed Snyk for validation purposes and to ensure the integrity of the code. This tool facilitated comprehensive testing of the entire codebase, including an assessment against PEP8 standards, which govern the readability and consistency of Python code. While the test recommended an alternative method for exiting the program, it's worth noting that my current code functions without errors. Apart from minor readability concerns, which I'll address below, my code adheres to the PEP8 guidelines.
 ### Game testing
 
 Testing involved using print statements to check whether a piece of code or function worked before really adding the true purpose of the code. 
