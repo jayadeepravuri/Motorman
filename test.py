@@ -1,3 +1,6 @@
+# Your code goes here.
+# Write your code to expect a terminal of 80 characters wide and 24 rows high
+
 import random
 from brands import brands
 import string
@@ -10,18 +13,17 @@ def username():
 
         username = input("Welcome! Please Entre a Username: \n")
         if username.isalpha() is True:
-            print("------------------------------------------")
-            print(f"Hello {username}, Let's play Motorman!\n")
-            print(" __  __       _                                   ")
-            print("|  \/  |     | |                                  ")
-            print("| \  / | ___ | |_ ___  _ __ _ __ ___   __ _ _ __  ")
-            print("| |\/| |/ _ \| __/ _ \| '__| '_ ` _ \ / _` | '_ \ ")
-            print("| |  | | (_) | || (_) | |  | | | | | | (_| | | | |")
-            print("|_|  |_|\___/ \__\___/|_|  |_| |_| |_|\__,_|_| |_|\n")
-            print("The rules are simple")
-            print("Guess a car brand,by entering a letter or a word")
-            print("You have to guess it within 6 attempts to Win!")
-            return username
+           print("------------------------------------------")
+           print(f"Hello {username}, Let's play Motorman!\n")
+           print(" __  __       _                                   ")
+           print("|  \/  |     | |                                  ")
+           print("| \  / | ___ | |_ ___  _ __ _ __ ___   __ _ _ __  ")
+           print("| |\/| |/ _ \| __/ _ \| '__| '_ ` _ \ / _` | '_ \ ")
+           print("| |  | | (_) | || (_) | |  | | | | | | (_| | | | |")
+           print("|_|  |_|\___/ \__\___/|_|  |_| |_| |_|\__,_|_| |_|\n")
+           print("The rules are simple, guess a car brand , by entering a letter or a word\n")
+           print("You have to guess it within 6 attempts to Win!\n")
+           return username
         else:
             print("Invalid character. Please enter in alphabets.")
             print("-----------------------------------------------")
@@ -55,56 +57,47 @@ def motorman(brand):
     print(brand_completion)
     print(build_motorman(lives))
     print("\n")
+
     while not guessed and lives > 0:
-        guess = input("please guess a letter:").upper()
+        guess = input("Please guess a letter or word: ").upper()
         if len(guess) == 1 and guess.isalpha():
-            if guess not in brand:
-                print(guess, "is not a letter in the brand word")
+            if guess in guessed_letter:
+                print("You already guessed the letter", guess)
+            elif guess not in brand:
+                print(guess, "is not in the word.")
                 lives -= 1
                 guessed_letter.append(guess)
-            elif guess in guessed_letter:
-                print("you already guessed the letter", guess)
             else:
-                print("nice work", guess, "is in the brand word")
+                print("Good job,", guess, "is in the word!")
                 guessed_letter.append(guess)
                 brand_as_list = list(brand_completion)
                 indices = [i for i, letter in enumerate(brand) if letter == guess]
-            for index in indices:
-                brand_as_list[index] = guess
+                for index in indices:
+                    brand_as_list[index] = guess
                 brand_completion = "".join(brand_as_list)
-            if "_" not in brand_completion:
-                guessed = True
+                if "-" not in brand_completion:
+                    guessed = True
         elif len(guess) == len(brand) and guess.isalpha():
             if guess in guessed_word:
                 print("You already guessed the word", guess)
             elif guess != brand:
-                print(guess, "is not the brand word.")
+                print(guess, "is not the word.")
                 lives -= 1
                 guessed_word.append(guess)
             else:
                 guessed = True
                 brand_completion = brand
-
         else:
-            print("invalid character")
-
+            print("Not a valid guess.")
         print(build_motorman(lives))
         print(brand_completion)
         print("\n")
     if guessed:
         print("Congrats, you guessed the word! You win!")
-        print("  _____                            _       ")       
-        print(" / ____|                          | |      ")     
-        print("| |     ___  _ __   __ _ _ __ __ _| |_ ___ ")
-        print("| |    / _ \| '_ \ / _` | '__/ _` | __/ __|")
-        print("| |___| (_) | | | | (_| | | | (_| | |_\__ |")
-        print(" \_____\___/|_| |_|\__, |_|  \__,_|\__|___/")
-        print("                  __/ |                    ")
-        print("                  |___/                    ")
     else:
-        print("Sorry, you ran out of lives. The car brand was " + brand + ". ")
-        
-        
+        print("Sorry, you ran out of tries. The word was " + brand + ". Maybe next time!")
+
+
 def build_motorman(lives):
     stages = [  
                 """
@@ -123,12 +116,14 @@ def build_motorman(lives):
                    \___/          \___/
                 """,
                 """
+                
                 |   ___    |  ,|   ___`-.
                 |  /   \   |___/  /   \  `-.
                 |_| (O) |________| (O) |____|
                    \___/          \___/
                 """,
                 """
+                                  
                 __/__\___________| \_
                 |   ___    |  ,|   ___`-.
                 |  /   \   |___/  /   \  `-.
@@ -144,7 +139,7 @@ def build_motorman(lives):
                 |_| (O) |________| (O) |____|
                    \___/          \___/
                 """         
-            ]
+    ]
 
     return stages[lives]
 
@@ -169,10 +164,10 @@ def main():
             break
             clear()
         elif question.upper() != "Y":
-            clear()
-            print(f"{question} is not valid. Entre a valid character")
-            print("\n")
-            question.upper()
+             clear()
+             print(f"{question} is not valid. Entre a valid character")
+             print("\n")
+             question.upper()
         else:
             clear()
             username()
@@ -182,3 +177,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    

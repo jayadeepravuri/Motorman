@@ -68,9 +68,9 @@ def motorman(brand):
         guess = input("please guess a letter:").upper()
         if len(guess) == 1 and guess.isalpha():
            if guess not in brand:
-              print(guess,"is not a letter in the brand word")
-              lives -= 1
-              guessed_letter.append(guess)
+             print(guess,"is not a letter in the brand word")
+             lives -= 1
+             guessed_letter.append(guess)
            elif guess in guessed_letter:
               print("you already guessed the letter" , guess)
            else:
@@ -81,10 +81,8 @@ def motorman(brand):
               for index in indices:
                   brand_as_list[index] = guess
               brand_completion = "".join(brand_as_list)
-              if "_" not in brand_completion:
+              if "-" not in brand_completion:
                     guessed = True
-
-
         elif len(guess) == len(brand) and guess.isalpha():
             if guess in guessed_word:
                 print("You already guessed the word", guess)
