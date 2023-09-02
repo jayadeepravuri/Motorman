@@ -21,6 +21,18 @@ In conclusion, my priority was to establish a clear visual representation of how
 
 The design element does not feature too much in this project, as it is a command line interface project. Whilst not requiring any ‘glamorous’ design, the function of the app works well enough. I have previously seen some other apps developed by students that hold a little more style, but for the purposes of the game, everything is fine.
 
+### Features
+
+* Firstly , there is a username validator
+* Now, the player gets to begin the game, by guessing either a word or a letter.
+* If the player correctly selects a single letter or a word, he wins or a loses a life.
+* If the player incorrectly selects a word or a letter, he loses a life utill all the 6 
+  lifes are used.
+* If the player enters multiple letter or any other character than an alphabet, he can try 
+  again.
+* If the player enters an already guessed letter, he gets to try again, without losing a 
+  life.
+
 ### ASCII Art
 
 ![ASCII Art](/assets/images/ASCII.JPG)
@@ -35,8 +47,6 @@ I employed CI Python Linter for validation purposes and to ensure the integrity 
 ### Unsolved Errors
 
 Testing involved using print statements to check whether a piece of code or function worked before really adding the true purpose of the code. 
-
-I stumbled across a number of errors, when specifically trying to condense the code. One of my personal issues with the program is the amount of code, and whilst I endeavoured to replace many lines of code with just a few, sometimes errors would appear or the program would not work the way it was intended to.
 
 ![CI Python Linter](/assets/images/validator.JPG)
 
@@ -63,13 +73,13 @@ The above steps, created a usable application.
 
 ## Future Development
 
-I feel there is a lot more scope and potential for this game. Firstly an issue for me is that the user is not allowed to select a new category after each retry. Whilst I added some code that rectified this, it did create issues elsewhere. Also the code for me seems very clunky and would definitely benefit from being condensed so that the readability improves significantly.
-
 * Firstly, the game could have different levels of difficulty, according to category of 
   words.
 * The guessed letter could be displayed.
 * Multiple letters can be taken instead of a single letter.
 * Score system could be added.
+* Also the code for me seems very clunky and would definitely benefit from being condensed 
+  so that the readability improves significantly.
 
 ## Credits and Mentions
 
