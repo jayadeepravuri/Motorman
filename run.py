@@ -77,7 +77,7 @@ def motorman(brand):
                   brand_as_list[index] = guess
               brand_completion = "".join(brand_as_list)
               if "-" not in brand_completion:
-                    guessed = True
+                guessed = True
         elif len(guess) == len(brand) and guess.isalpha():
             if guess in guessed_word:
                 print("You already guessed the word", guess)
@@ -176,10 +176,10 @@ def main():
             break
             clear()
         elif question.upper() != "Y":
-             clear()
-             print(f"{question} is not valid. Entre a valid character")
-             print("\n")
-             question.upper()
+            clear()
+            print(f"{question} is not valid. Entre a valid character")
+            print("\n")
+            question.upper()
         else:
             clear()
             username()
