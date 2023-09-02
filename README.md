@@ -1,6 +1,7 @@
 # Motorman
 
 ![Title graphic](/assets/images/title.JPG)
+[Here is the live version of my project](https://motorman-002301103e6a.herokuapp.com/)
 
 The popular game of Hangman, has been redesigned and given the name MotorMan. It is a command line interface game and the player should guess a letter or a word within 6 tries, in order to win the game. The game  provides full user interaction to complete the game.
 
