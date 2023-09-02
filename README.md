@@ -17,8 +17,7 @@ In conclusion, my priority was to establish a clear visual representation of how
 
 ## Design
 
-![User interface](/assets/user-interface.png)
-![Start of game](/assets/begin-game.png)
+![Start of game](/assets/images/Motorman.JPG)
 
 The design element does not feature too much in this project, as it is a command line interface project. Whilst not requiring any ‘glamorous’ design, the function of the app works well enough. I have previously seen some other apps developed by students that hold a little more style, but for the purposes of the game, everything is fine.
 
@@ -33,41 +32,23 @@ I found myself particularly drawn to the concept of incorporating ASCII art, a g
 
 ### Validation
 
-![Snyk validator](/assets/snyk-validate.png)
-
 I employed CI Python Linter for validation purposes and to ensure the integrity of the code by Code Institute. This tool facilitated comprehensive testing of the entire codebase, including an assessment against PEP8 standards, which govern the readability and consistency of Python code. While the test recommended an alternative method for exiting the program, it's worth noting that my current code functions without errors. Apart from minor readability concerns, which I'll address below, my code adheres to the PEP8 guidelines.
-### Game testing
+### Unsolved Errors
 
 Testing involved using print statements to check whether a piece of code or function worked before really adding the true purpose of the code. 
 
 I stumbled across a number of errors, when specifically trying to condense the code. One of my personal issues with the program is the amount of code, and whilst I endeavoured to replace many lines of code with just a few, sometimes errors would appear or the program would not work the way it was intended to.
 
-![Select Category](/assets/category-select.png)
+![CI Python Linter](/assets/images/validator.JPG)
 
-Above is a test I did of the category select function. Here shows that if the user inputs an invalid character, then an error message will appear. This prompts the user to alter their input.
+Due to the use of ASCII art, W605,W291,W292,W293 errors were registered according to PEP8 standards.
 
-![Random word](/assets/random-word-test.png)
-
-Here is an earlier version of the repository testing the random word function. Here I commented out the welcome player function to allow me to run the random word tests.
-
-![Letter select](/assets/letter-select-test.png)
-
-I tested whether the letter selected by the user would show up in the blank dashes. I printed the word so I would know which letters to input.
+Also, E111 and E501 readability errors were registered according to PEP8 standards.
 
 ### Issues
 
 I have come across a number of issues I found within the game. Some do affect the users experience and others have some visual implications.
 
-![Multi-Letter](/assets/correct-guess-bug.png)
-
-
-![Spaced words](/assets/spaced-words.png)
-
-Here an issue arose when the hidden word is actually two words. When typing the letters of South Africa, the user should win. However you are required to put a space in to win the game. Looking back, I would like to create a hint within the code that picks up on this, or even omit spaces altogether.
-
-![Top of screen bug](/assets/top-screen-bug2.png)
-
-After surviving the game, the word is printed out as well as two dashes that sit above it. This is not intentional, and I could't quite figure out exactly what caused this.
 
 ## Deployment
 
@@ -99,9 +80,9 @@ Moving forward, I would like to see more ASCII art within the game. Post develop
 
 ## Credits and Mentions
 
-The foundation of the game was build upon the work of [wynand1004](https://github.com/wynand1004). I built upon his already great game and tried to make it my own.
 
-Both him and [rrice2004](https://github.com/rrice2004) project’s assisted me with the gallows and hangman artwork. I really liked the simple graphics to depict each gallow for a wrong letter choice. I also liked the idea of having seperate files for each of the random words, as supposed to inputting it in the already clunky run.py file.
+
+
 
 ## Thanks
 

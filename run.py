@@ -149,10 +149,8 @@ def build_motorman(lives):
                 |  /   \   |___/  /   \  `-.
                 |_| (O) |________| (O) |____|
                    \___/          \___/
-                """         
-                
+                """                         
             ]
-
     return stages[lives]
 
 
