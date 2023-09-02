@@ -12,6 +12,7 @@ def username():
     while True:
 
         username = input("Welcome! Please Entre a Username: \n")
+        
         if username.isalpha() is True:
            print("------------------------------------------")
            print(f"Hello {username}, Let's play Motorman!\n")
@@ -21,6 +22,7 @@ def username():
            print("| |\/| |/ _ \| __/ _ \| '__| '_ ` _ \ / _` | '_ \ ")
            print("| |  | | (_) | || (_) | |  | | | | | | (_| | | | |")
            print("|_|  |_|\___/ \__\___/|_|  |_| |_| |_|\__,_|_| |_|\n")
+           
            print("The rules are simple, guess a car brand , by entering a letter or a word\n")
            print("You have to guess it within 6 attempts to Win!\n")
            return username
@@ -43,7 +45,6 @@ def get_valid_brand(brands):
         brand = random.choice(brands)
     return brand.upper()
 
-
 def motorman(brand):
     brand_completion = "-" * len(brand)
     guessed = False
@@ -52,6 +53,7 @@ def motorman(brand):
     guessed_word = []
     guessed = False
     lives = 5
+
     print("Let's play motorman!")
     print("\n")
     print(brand_completion)
@@ -59,43 +61,53 @@ def motorman(brand):
     print("\n")
 
     while not guessed and lives > 0:
-        guess = input("Please guess a letter or word: ").upper()
+        guess = input("please guess a letter:").upper()
         if len(guess) == 1 and guess.isalpha():
-            if guess in guessed_letter:
-                print("You already guessed the letter", guess)
-            elif guess not in brand:
-                print(guess, "is not in the word.")
-                lives -= 1
-                guessed_letter.append(guess)
-            else:
-                print("Good job,", guess, "is in the word!")
-                guessed_letter.append(guess)
-                brand_as_list = list(brand_completion)
-                indices = [i for i, letter in enumerate(brand) if letter == guess]
-                for index in indices:
-                    brand_as_list[index] = guess
-                brand_completion = "".join(brand_as_list)
-                if "-" not in brand_completion:
+           if guess not in brand:
+             print(guess, "is not a letter in the brand word")
+             lives -= 1
+             guessed_letter.append(guess)
+           elif guess in guessed_letter:
+              print("you already guessed the letter", guess)
+           else:
+              print("nice work", guess, "is in the brand word")
+              guessed_letter.append(guess)
+              brand_as_list = list(brand_completion)
+              indices = [i for i, letter in enumerate(brand) if letter == guess]
+              for index in indices:
+                  brand_as_list[index] = guess
+              brand_completion = "".join(brand_as_list)
+              if "-" not in brand_completion:
                     guessed = True
         elif len(guess) == len(brand) and guess.isalpha():
             if guess in guessed_word:
                 print("You already guessed the word", guess)
             elif guess != brand:
-                print(guess, "is not the word.")
+                print(guess, "is not the brand word.")
                 lives -= 1
                 guessed_word.append(guess)
             else:
                 guessed = True
                 brand_completion = brand
+
         else:
-            print("Not a valid guess.")
+            print("invalid character")
+
         print(build_motorman(lives))
         print(brand_completion)
         print("\n")
     if guessed:
         print("Congrats, you guessed the word! You win!")
+        print("  _____                            _       ")       
+        print(" / ____|                          | |      ")     
+        print("| |     ___  _ __   __ _ _ __ __ _| |_ ___ ")
+        print("| |    / _ \| '_ \ / _` | '__/ _` | __/ __|")
+        print("| |___| (_) | | | | (_| | | | (_| | |_\__ |")
+        print(" \_____\___/|_| |_|\__, |_|  \__,_|\__|___/")
+        print("                  __/ |                    ")
+        print("                  |___/                    ")
     else:
-        print("Sorry, you ran out of tries. The word was " + brand + ". Maybe next time!")
+        print("Sorry, you ran out of lives. The car brand was " + brand + ". ")
 
 
 def build_motorman(lives):
@@ -139,7 +151,8 @@ def build_motorman(lives):
                 |_| (O) |________| (O) |____|
                    \___/          \___/
                 """         
-    ]
+                
+            ]
 
     return stages[lives]
 
@@ -177,4 +190,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
