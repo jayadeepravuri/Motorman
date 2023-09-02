@@ -35,7 +35,7 @@ I found myself particularly drawn to the concept of incorporating ASCII art, a g
 
 ![Snyk validator](/assets/snyk-validate.png)
 
-I employed Snyk for validation purposes and to ensure the integrity of the code. This tool facilitated comprehensive testing of the entire codebase, including an assessment against PEP8 standards, which govern the readability and consistency of Python code. While the test recommended an alternative method for exiting the program, it's worth noting that my current code functions without errors. Apart from minor readability concerns, which I'll address below, my code adheres to the PEP8 guidelines.
+I employed CI Python Linter for validation purposes and to ensure the integrity of the code by Code Institute. This tool facilitated comprehensive testing of the entire codebase, including an assessment against PEP8 standards, which govern the readability and consistency of Python code. While the test recommended an alternative method for exiting the program, it's worth noting that my current code functions without errors. Apart from minor readability concerns, which I'll address below, my code adheres to the PEP8 guidelines.
 ### Game testing
 
 Testing involved using print statements to check whether a piece of code or function worked before really adding the true purpose of the code. 
@@ -58,9 +58,8 @@ I tested whether the letter selected by the user would show up in the blank dash
 
 I have come across a number of issues I found within the game. Some do affect the users experience and others have some visual implications.
 
-![Correct gueses](/assets/correct-guess-bug.png)
+![Multi-Letter](/assets/correct-guess-bug.png)
 
-I managed to find that when a user guesses correctly initially, rather than just printing the correct guess and staying with the hangman art, you are able to solve the word with correct guesses without actually seeing the gallows. This to me would be frustrating for the user and I feel this tarnishes the game a little.
 
 ![Spaced words](/assets/spaced-words.png)
 
