@@ -31,8 +31,6 @@ def get_username():
 def get_valid_brand(brands):
     """Selects a valid brand name from the list (without spaces)."""
     brand = random.choice(brands)
-    while ' ' in brand:
-        brand = random.choice(brands)
     return brand.upper()
 
 
@@ -40,29 +38,29 @@ def build_motorman(lives):
     """Returns the motorman display based on the number of remaining lives."""
     stages = [
         r"""
-        \___/          \___/
+           \___/          \___/
         """,
         r"""
         |_| (O) |________| (O) |____|
-        \___/          \___/
+           \___/          \___/
         """,
         r"""
         |  /   \   |___/  /   \  `-.
         |_| (O) |________| (O) |____|
-        \___/          \___/
+           \___/          \___/
         """,
         r"""
         |   ___    |  ,|   ___`-.
         |  /   \   |___/  /   \  `-.
         |_| (O) |________| (O) |____|
-        \___/          \___/
+           \___/          \___/
         """,
         r"""
         __/__\___________| \_
         |   ___    |  ,|   ___`-.
         |  /   \   |___/  /   \  `-.
         |_| (O) |________| (O) |____|
-        \___/          \___/
+           \___/          \___/
         """,
         r"""
         __            ||
@@ -70,7 +68,7 @@ def build_motorman(lives):
         |   ___    |  ,|   ___`-.
         |  /   \   |___/  /   \  `-.
         |_| (O) |________| (O) |____|
-        \___/          \___/
+           \___/          \___/
         """
     ]
     return stages[5 - lives]
@@ -84,58 +82,70 @@ def display_winner_message():
     print("| |     ___  _ __   __ _ _ __ __ _| |_ ___ ")
     print("| |    / _ \\| '_ \\ / _` | '__/ _` | __/ __|")
     print("| |___| (_) | | | | (_| | | | (_| | |_\\__ \\")
-    print(" \\_____\\___/|_| |_|\\__, |_|  \\__,_|\\__|___/")
-    print("                  __/ |                    ")
-    print("                  |___/                    ")
+    print(" \\_____\\___/|_| |_|\\__,|_|  \\__,_|\\__|___/")
+    print("                      __/ |                    ")
+    print("                      |___/                    ")
 
 
 def display_loser_message(brand):
-    """Displays the loser message."""
     print(f"Sorry, you ran out of lives. The car brand was {brand}.")
 
 
+def process_guess(guess, brand, guessed_letters, guessed_words, brand_completion):
+    """
+    A unified Guess handling approach.
+    Processes the player's guess and updates the game state accordingly.
+    """
+    if len(guess) == 1:  # Guessing a letter
+        if guess in guessed_letters:
+            print(f"You've already guessed the letter {guess}.")
+            return brand_completion, 0, False  # No life lost, not guessed
+        guessed_letters.add(guess)
+        if guess in brand:
+            print(f"Good guess! {guess} is in the brand.")
+            brand_completion = ''.join(
+                [guess if brand[i] == guess else char for i, char in enumerate(brand_completion)]
+            )
+            return brand_completion, 0, brand_completion == brand  # No life lost, check if guessed
+        else:
+            print(f"Sorry, {guess} is not in the brand.")
+            return brand_completion, 1, False  # Life lost, not guessed
+    else:  # Guessing the entire word
+        if guess in guessed_words:
+            print(f"You've already guessed the word {guess}.")
+            return brand_completion, 0, False  # No life lost, not guessed
+        guessed_words.add(guess)
+        if guess == brand:
+            return brand, 0, True  # Correct guess, game won
+        else:
+            print(f"Sorry, {guess} is not the correct brand.")
+            return brand_completion, 1, False  # Life lost, not guessed
+
+
 def motorman(brand):
-    """Runs the main game logic for Motorman."""
+  
     brand_completion = "-" * len(brand)
-    guessed = False
     guessed_letters = set()
     guessed_words = set()
     lives = 5
+    guessed = False
 
     print("Let's play Motorman!\n")
     print(brand_completion)
     print(build_motorman(lives))
     print("\n")
 
-    while not guessed and lives > 0:
+    while lives > 0 and not guessed:
         guess = input("Please guess a letter or the word: ").upper()
-        if len(guess) == 1 and guess.isalpha():
-            if guess in guessed_letters:
-                print(f"You already guessed the letter {guess}.")
-            elif guess not in brand:
-                print(f"{guess} is not in the brand word.")
-                lives -= 1
-                guessed_letters.add(guess)
-            else:
-                print(f"Nice work! {guess} is in the brand word.")
-                guessed_letters.add(guess)
-                brand_completion = ''.join(
-                    [guess if brand[i] == guess else char for i, char in enumerate(brand_completion)]
-                )
-                if '-' not in brand_completion:
-                    guessed = True
-        elif len(guess) == len(brand) and guess.isalpha():
-            if guess in guessed_words:
-                print(f"You already guessed the word {guess}.")
-            elif guess != brand:
-                print(f"{guess} is not the brand word.")
-                lives -= 1
-                guessed_words.add(guess)
-            else:
-                guessed = True
-                brand_completion = brand
-        else:
-            print("Invalid input.")
+        if not guess.isalpha():
+            print("Invalid input. Please enter only letters.")
+            continue  
+
+        # Process the guess and update the game state
+        brand_completion, lives_lost, guessed = process_guess(
+            guess, brand, guessed_letters, guessed_words, brand_completion
+        )
+        lives -= lives_lost  
 
         print(build_motorman(lives))
         print(brand_completion)
