@@ -9,12 +9,20 @@ I trust you'll find the game enjoyable.
 
 ## Lucid Chart
 
-![Flow Chart](/assets/images/lucid chart 1.png)
-![Flow Chart](/assets/images/Lucid chart 2.png)
+![Flow Chart](/assets/images/lucid%20chart%201.png)
+![Flow Chart](/assets/images/Lucid%20chart%202.png)
 Before commencing the game's initial development, I created a flowchart using Lucid Chart to map out my approach to writing the Python code for the game. At the start of the game, my intention was to inquire about the user's name and store it for later use. Additionally, I aimed to confirm the user's category choice and, in case of uncertainty, implement a loop to revisit the question.
 
-In conclusion, my priority was to establish a clear visual representation of how the code would function in relation to letter guessing. Initially, I grappled with the question of whether the user had discovered the correct letter within a word, even though the word itself hadn't been established according to the flow chart. To address this, I revised the flow to indicate whether the given letter matched the correct word and, if not, whether it existed within the word before proceeding through the loop. 
+The flowchart outlines the Motorman game process:
 
+1. **Start**: Clear terminal.
+2. **Username Input**: Prompt user for a valid name.
+3. **Game Setup**: Display game rules and select a random brand.
+4. **Game Loop**: Players guess letters or the full brand name while tracking lives.
+5. **Game Outcome**: Check if the player won (guessed the word) or lost (ran out of lives).
+6. **End or Replay**: Prompt the player to replay or end the game.
+
+This ensures a smooth gameplay experience from start to finish.
 
 ## Design
 
@@ -24,15 +32,25 @@ The design element does not feature too much in this project, as it is a command
 
 ### Features
 
-* Firstly , there is a username validator
-* Now, the player gets to begin the game, by guessing either a word or a letter.
-* If the player correctly selects a single letter or a word, he wins or a loses a life.
-* If the player incorrectly selects a word or a letter, he loses a life utill all the 6 
-  lifes are used.
-* If the player enters multiple letter or any other character than an alphabet, he can try 
-  again.
-* If the player enters an already guessed letter, he gets to try again, without losing a 
-  life.
+The Motorman game offers a fun and straightforward experience with the following features:
+
+1. **User-Friendly Start**: The game begins by asking for your name, only accepting alphabetic characters, making it simple and easy to get started.
+
+2. **Clean Display**: The screen clears when needed, keeping things organized and clutter-free as you play.
+
+3. **Random Brand Guessing**: A car brand is chosen at random for you to guess, ensuring a fresh challenge each time. The brand names don’t include spaces, so it’s all about finding the right letters.
+
+4. **Interactive Gameplay**: You can guess one letter at a time or go for the entire word. After each guess, your progress is updated, showing which letters you’ve got right so far.
+
+5. **Limited Lives**: You start with 5 lives, and each wrong guess costs you one. It adds a bit of pressure and excitement, as you need to figure out the word before running out of attempts.
+
+6. **Motorman Character**: As you lose lives, a simple character called "Motorman" changes, visually showing your remaining chances. It’s a nice touch that adds some personality to the game.
+
+7. **Win or Lose**: If you guess the brand before running out of lives, you win! If not, the game lets you know what the brand was and displays a message about losing.
+
+8. **Play Again Option**: After the game ends, you can decide whether to try your luck again or call it a day. It’s up to you!
+
+These features make Motorman a fun and easy game to play, with just enough challenge to keep you coming back for more.
 
 ### ASCII Art
 

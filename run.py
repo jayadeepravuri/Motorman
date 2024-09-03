@@ -21,7 +21,7 @@ def get_username():
             print("| |\\/| |/ _ \\| __/ _ \\| '__| '_ ` _ \\ / _` | '_ \\ ")
             print("| |  | | (_) | || (_) | |  | | | | | | (_| | | | |")
             print("|_|  |_|\\___/ \\__\\___/|_|  |_| |_| |_|\\__,_|_| |_|\n")
-            print("The rules are simple, guess a car brand by entering a letter or a word.")
+            print("Guess a car brand by entering a letter or a word.")
             print("You have to guess it within 6 attempts to win!\n")
             return user_name
         else:
@@ -91,7 +91,8 @@ def display_loser_message(brand):
     print(f"Sorry, you ran out of lives. The car brand was {brand}.")
 
 
-def process_guess(guess, brand, guessed_letters, guessed_words, brand_completion):
+def process_guess(guess, brand, guessed_letters, 
+                  guessed_words, brand_completion):
     """
     A unified Guess handling approach.
     Processes the player's guess and updates the game state accordingly.
@@ -104,9 +105,10 @@ def process_guess(guess, brand, guessed_letters, guessed_words, brand_completion
         if guess in brand:
             print(f"Good guess! {guess} is in the brand.")
             brand_completion = ''.join(
-                [guess if brand[i] == guess else char for i, char in enumerate(brand_completion)]
+                [guess if brand[i] == guess else char for i, 
+                  char in enumerate(brand_completion)]
             )
-            return brand_completion, 0, brand_completion == brand  # No life lost, check if guessed
+            return brand_completion, 0, brand_completion == brand  
         else:
             print(f"Sorry, {guess} is not in the brand.")
             return brand_completion, 1, False  # Life lost, not guessed
@@ -123,7 +125,6 @@ def process_guess(guess, brand, guessed_letters, guessed_words, brand_completion
 
 
 def motorman(brand):
-  
     brand_completion = "-" * len(brand)
     guessed_letters = set()
     guessed_words = set()
@@ -140,13 +141,11 @@ def motorman(brand):
         if not guess.isalpha():
             print("Invalid input. Please enter only letters.")
             continue  
-
         # Process the guess and update the game state
         brand_completion, lives_lost, guessed = process_guess(
             guess, brand, guessed_letters, guessed_words, brand_completion
         )
         lives -= lives_lost  
-
         print(build_motorman(lives))
         print(brand_completion)
         print("\n")
