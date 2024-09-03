@@ -9,8 +9,8 @@ I trust you'll find the game enjoyable.
 
 ## Lucid Chart
 
-![Flow Chart](/assets/images/Lucidchart.JPG)
-
+![Flow Chart](/assets/images/lucid chart 1.png)
+![Flow Chart](/assets/images/Lucid chart 2.png)
 Before commencing the game's initial development, I created a flowchart using Lucid Chart to map out my approach to writing the Python code for the game. At the start of the game, my intention was to inquire about the user's name and store it for later use. Additionally, I aimed to confirm the user's category choice and, in case of uncertainty, implement a loop to revisit the question.
 
 In conclusion, my priority was to establish a clear visual representation of how the code would function in relation to letter guessing. Initially, I grappled with the question of whether the user had discovered the correct letter within a word, even though the word itself hadn't been established according to the flow chart. To address this, I revised the flow to indicate whether the given letter matched the correct word and, if not, whether it existed within the word before proceeding through the loop. 
