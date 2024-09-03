@@ -67,11 +67,9 @@ I employed CI Python Linter for validation purposes and to ensure the integrity 
 
 Testing involved using print statements to check whether a piece of code or function worked before really adding the true purpose of the code. 
 
-![CI Python Linter](/assets/images/validator.JPG)
+![CI Python Linter](/assets/images/error.png)
 
-Due to the use of ASCII art, W605,W291,W292,W293 errors were registered according to PEP8 standards.
 
-Also, E111 and E501 readability errors were registered according to PEP8 standards.
 
 ## Deployment
 
