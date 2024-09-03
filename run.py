@@ -91,8 +91,7 @@ def display_loser_message(brand):
     print(f"Sorry, you ran out of lives. The car brand was {brand}.")
 
 
-def process_guess(guess, brand, guessed_letters, 
-                  guessed_words, brand_completion):
+def process_guess(guess, brand, guessed_letters, guessed_words, brand_completion):
     """
     A unified Guess handling approach.
     Processes the player's guess and updates the game state accordingly.
@@ -106,7 +105,7 @@ def process_guess(guess, brand, guessed_letters,
             print(f"Good guess! {guess} is in the brand.")
             brand_completion = ''.join(
                 [guess if brand[i] == guess else char for i, 
-                  char in enumerate(brand_completion)]
+                 char in enumerate(brand_completion)]
             )
             return brand_completion, 0, brand_completion == brand  
         else:
@@ -140,12 +139,12 @@ def motorman(brand):
         guess = input("Please guess a letter or the word: ").upper()
         if not guess.isalpha():
             print("Invalid input. Please enter only letters.")
-            continue  
+            continue
         # Process the guess and update the game state
         brand_completion, lives_lost, guessed = process_guess(
             guess, brand, guessed_letters, guessed_words, brand_completion
         )
-        lives -= lives_lost  
+        lives -= lives_lost
         print(build_motorman(lives))
         print(brand_completion)
         print("\n")
